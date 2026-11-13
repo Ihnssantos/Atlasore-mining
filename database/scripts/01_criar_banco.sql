@@ -1,0 +1,3 @@
+IF DB_ID(N'AtlasOre') IS NULL
+    CREATE DATABASE AtlasOre;
+GO
