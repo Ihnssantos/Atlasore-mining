@@ -29,3 +29,6 @@ export function getPool() {
   }
   return poolPromise;
 }
+
+// Reexporta os tipos do mssql para os repositórios declararem os parâmetros
+export { sql };
