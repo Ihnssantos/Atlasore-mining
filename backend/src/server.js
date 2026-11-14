@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import healthRoutes from './routes/healthRoutes.js';
-import tiposEquipamentoRoutes from './routes/tiposEquipamentoRoutes.js';
+import cadastrosRoutes from './routes/cadastrosRoutes.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Registra as rotas da aplicação
 app.use('/health', healthRoutes);
-app.use('/tipos-equipamento', tiposEquipamentoRoutes);
+app.use(cadastrosRoutes);
 
 // Deve vir depois das rotas para capturar os erros delas
 app.use(errorHandler);
