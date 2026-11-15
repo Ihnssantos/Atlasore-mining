@@ -1,0 +1,65 @@
+/* Estrutura da tela: sidebar fixa e área de conteúdo */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar azul-marinho que acompanha a rolagem da página */
+.sidebar {
+  position: sticky;
+  top: 0;
+  width: 248px;
+  height: 100vh;
+  flex-shrink: 0;
+  padding: 24px 16px;
+  background: var(--navy);
+}
+
+/* Logo em branco com o Ore e o Mining em dourado */
+.logo {
+  padding: 0 8px 28px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.logo span,
+.logo small {
+  color: var(--gold);
+}
+
+.logo small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
+/* Itens do menu, com destaque dourado no item da tela atual */
+.menu-link {
+  display: block;
+  margin-bottom: 4px;
+  padding: 11px 16px;
+  border-radius: 8px;
+  color: #C8D3E0;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.menu-link:hover {
+  background: var(--navy-light);
+  color: #fff;
+}
+
+.menu-link.active {
+  background: var(--navy-light);
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* Área principal ao lado da sidebar */
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 32px 40px;
+}

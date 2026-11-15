@@ -1,0 +1,24 @@
+/* Cores do tema AtlasOre */
+:root {
+  --navy: #1E3A5F;
+  --navy-light: #24476D;
+  --gold: #C9A227;
+  --background: #F4F5F7;
+  --text: #2D2D2D;
+  --text-muted: #5B6472;
+  --border: #E3E6EB;
+  --card: #FFFFFF;
+}
+
+/* Faz a largura e o preenchimento dos elementos incluírem a borda */
+* {
+  box-sizing: border-box;
+}
+
+/* Fonte, fundo e cor de texto padrão de todas as telas */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
