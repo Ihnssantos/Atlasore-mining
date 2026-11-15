@@ -1,18 +1,5 @@
 import { getPool, sql } from '../config/db.js';
-
-// Converte o tipo do campo para o tipo de parâmetro do mssql
-function toSqlType(field) {
-  switch (field.type) {
-    case 'int':
-      return sql.Int;
-    case 'decimal':
-      return sql.Decimal(field.precision, field.scale);
-    case 'password':
-      return sql.NVarChar(255);
-    default:
-      return sql.NVarChar(field.max);
-  }
-}
+import { toSqlType } from '../config/sqlTypes.js';
 
 // Cria o repositório de um cadastro a partir da sua definição
 // Os nomes de tabela e coluna vêm do código, e os valores entram sempre por parâmetros

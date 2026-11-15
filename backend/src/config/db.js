@@ -12,6 +12,8 @@ const config = {
     encrypt: true,
     // Aceita o certificado local do SQL Server, usar apenas em desenvolvimento
     trustServerCertificate: true,
+    // Datas são gravadas e lidas no horário local, o mesmo do servidor de banco
+    useUTC: false,
   },
 };
 

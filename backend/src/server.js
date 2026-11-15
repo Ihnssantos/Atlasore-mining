@@ -4,6 +4,7 @@ import cors from 'cors';
 import healthRoutes from './routes/healthRoutes.js';
 import cadastrosRoutes from './routes/cadastrosRoutes.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import operacaoRoutes from './routes/operacaoRoutes.js';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 // Registra as rotas da aplicação
 app.use('/health', healthRoutes);
 app.use(cadastrosRoutes);
+app.use('/operacao', operacaoRoutes);
 
 // Deve vir depois das rotas para capturar os erros delas
 app.use(errorHandler);

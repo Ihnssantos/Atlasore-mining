@@ -1,4 +1,4 @@
-// Regras de validação e preparo dos campos de um cadastro
+// Regras de validação e preparo dos campos de um cadastro ou registro
 
 // Formato mínimo de um e-mail: texto, arroba, domínio e ponto
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,6 +28,8 @@ function validateValue(field, value) {
       return Number.isInteger(value) && value > 0 ? null : invalid;
     case 'decimal':
       return Number.isFinite(value) ? null : invalid;
+    case 'datetime':
+      return typeof value === 'string' && !Number.isNaN(new Date(value).getTime()) ? null : invalid;
     case 'enum':
       return field.values.includes(value) ? null : invalid;
     case 'email': {
@@ -44,12 +46,17 @@ function validateValue(field, value) {
   }
 }
 
-// Valida todos os campos e retorna a primeira mensagem de erro ou null
+// Valida os campos e retorna a primeira mensagem de erro ou null
 // Na atualização a senha é opcional, e quando não vem a senha atual é mantida
-export function validateFields(fields, body, { isUpdate = false } = {}) {
+// No modo parcial, os campos que não foram enviados são ignorados
+export function validateFields(fields, body, { isUpdate = false, isPartial = false } = {}) {
   for (const field of fields) {
     const value = body[field.name];
     const isOptionalPassword = isUpdate && field.type === 'password';
+
+    if (isPartial && value === undefined) {
+      continue;
+    }
 
     if (isEmpty(value)) {
       if (isRequired(field) && !isOptionalPassword) {
@@ -68,15 +75,22 @@ export function validateFields(fields, body, { isUpdate = false } = {}) {
 }
 
 // Monta o objeto com os valores prontos para gravar
-// Textos ficam sem espaços nas pontas (exceto a senha) e campos vazios viram null
-export function extractData(fields, body) {
+// Textos ficam sem espaços nas pontas (exceto a senha), datas viram Date e campos vazios viram null
+// Com onlyProvided, só entram os campos que vieram na requisição
+export function extractData(fields, body, { onlyProvided = false } = {}) {
   const data = {};
 
   for (const field of fields) {
     const value = body[field.name];
 
+    if (onlyProvided && value === undefined) {
+      continue;
+    }
+
     if (isEmpty(value)) {
       data[field.name] = null;
+    } else if (field.type === 'datetime') {
+      data[field.name] = new Date(value);
     } else if (typeof value === 'string' && field.type !== 'password') {
       data[field.name] = value.trim();
     } else {
