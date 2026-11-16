@@ -8,6 +8,7 @@
   --text-muted: #5B6472;
   --border: #E3E6EB;
   --card: #FFFFFF;
+  --danger: #B42318;
 }
 
 /* Faz a largura e o preenchimento dos elementos incluírem a borda */
@@ -21,4 +22,81 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--background);
   color: var(--text);
+}
+
+/* Título e subtítulo das páginas */
+h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.page-subtitle {
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Cartão branco com borda discreta, usado para agrupar o conteúdo */
+.card {
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* Botões: o padrão tem fundo branco, e o primário usa o azul-marinho */
+.button {
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--background);
+}
+
+.button-primary {
+  color: #fff;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.button-primary:hover {
+  background: var(--navy-light);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mensagem de erro exibida acima das tabelas e nos formulários */
+.message-error {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+/* Etiqueta de status */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+.badge-active {
+  color: #1B5E20;
+  background: #E3F4E5;
+}
+
+.badge-inactive {
+  color: var(--text-muted);
+  background: var(--border);
 }

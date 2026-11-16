@@ -1,0 +1,36 @@
+/* Permite rolar a tabela na horizontal quando ela é mais larga que a tela */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  padding: 8px 12px 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table td {
+  padding: 12px 12px 12px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--background);
+}
+
+/* Botões de ação lado a lado */
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.table-empty {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}

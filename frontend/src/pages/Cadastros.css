@@ -1,0 +1,44 @@
+/* Botões de escolha do cadastro, que quebram de linha quando faltar espaço */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+/* Cadastro escolhido, com o destaque dourado do tema */
+.tab-active {
+  font-weight: 500;
+  color: var(--text);
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Título do cartão com o botão de novo registro no canto direito */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
